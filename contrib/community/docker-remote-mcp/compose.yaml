@@ -1,0 +1,25 @@
+services:
+  mcp:
+    image: e2e-wave2-docker-remote-mcp:local
+    build: .
+    ports:
+      - "127.0.0.1:${MCP_PORT:-3100}:3100"
+    environment:
+      MCP_BIND: 0.0.0.0
+      MCP_ALLOW_REMOTE_BIND: "1"
+      MCP_TOKENS: "${MCP_TOKENS:?Set MCP_TOKENS to a JSON map of client names to distinct random tokens}"
+      MCP_ALLOWED_HOSTS: localhost,127.0.0.1
+      MCP_ALLOWED_ORIGINS: http://localhost:3100,http://127.0.0.1:3100
+      E2E_TELEMETRY_DISABLED: "1"
+    volumes:
+      - artifacts:/opt/companion/state
+    init: true
+    shm_size: 256mb
+    mem_limit: 2g
+    cpus: 2
+    pids_limit: 768
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    stop_grace_period: 45s
+volumes:
+  artifacts:

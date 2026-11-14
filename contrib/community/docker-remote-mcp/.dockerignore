@@ -1,0 +1,14 @@
+*
+!package.json
+!package-lock.json
+!bridge.mjs
+!serve.mjs
+!app.mjs
+!client.mjs
+!proof.test.mjs
+!process-proof.mjs
+!lifecycle.test.mjs
+!orphan-fixture.mjs
+!project/
+!project/**
+!LICENSE

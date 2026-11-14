@@ -1,0 +1,16 @@
+{
+  "name": "e2e-community-docker-remote-mcp",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": { "node": ">=24.8.0" },
+  "scripts": { "start": "node serve.mjs", "test": "node --test --test-concurrency=1 proof.test.mjs lifecycle.test.mjs" },
+  "dependencies": {
+    "@modelcontextprotocol/client": "2.4.0",
+    "@modelcontextprotocol/server": "2.4.0",
+    "@e2e-dev/web": "0.16.0",
+    "e2e": "0.23.1",
+    "zod": "4.6.7"
+  }
+}
